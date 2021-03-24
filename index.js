@@ -22,7 +22,12 @@ app.get('/',(req,res)=>{
 })
 //post
 app.post('/adduser',(req,res)=>{
-    console.log(req.body)
+    
+    //save database     
+    const user =req.body;
+      user.id =11; 
+    /* console.log('data received',req.body) */
+    res.send(user);
 })
 app.get('/fruit/banana',(req,res)=>{
     res.send({fruitName:'banana',quantity:10,price:1000})
