@@ -1,0 +1,51 @@
+import logo from './logo.svg';
+import './App.css';
+import { useState } from 'react';
+
+function App() {
+  
+  const products=[{name:'saban',price:'200', quantity:'10'},
+  {name:'gaban',price:'400', quantity:'110'},
+  {name:'jaban',price:'20', quantity:'1'}]
+  return (
+    <div className="App">
+     <Products name='berger' price='250' quantity='1'></Products>
+     <Products name='mikl' price='500' quantity='1'></Products>
+     <Products name={products[0].name} price={products[0].price} quantity={products[0].quantity}></Products>
+     <Products name={products[1].name} price={products[1].price} quantity={products[1].quantity}/>
+ <Counter></Counter>
+    </div>
+  );
+}
+
+export default App;
+function Counter(){
+  const [count,setCount] = useState(10)
+
+  function increase(){
+     const newCount =count +1
+     setCount(newCount)
+  }
+  return(
+    <div>
+      <h1>counter is {count} </h1>
+      <button onClick={increase}>count</button>
+    </div>
+  )
+}
+
+function Products(props){
+  const podutStyle={
+    border:'1px solid black',
+    width:'50%',
+    height:'50%'
+  }
+  return(
+  
+    <div style={podutStyle}>
+    <h1>name:{props.name}</h1>
+    <h2>price:{props.price}</h2>
+    <h3>quantity:{props.quantity}</h3>
+    </div>
+  )
+}
